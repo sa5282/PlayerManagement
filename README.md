@@ -1,2 +1,2 @@
 # PlayerManagement
-Application for managing sports player database
+Application for managing sports player database.
