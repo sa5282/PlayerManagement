@@ -23,6 +23,16 @@ public class SportService {
 	@Autowired
 	private PlayerRepository playerRepo;
 	
+	
+	public List<SportDTO> getSportByNames(List<String> sportNames) throws Exception {
+		
+		List<Sport> sports = sportRepo.findByNameIn(sportNames);
+		
+		List<SportDTO> dtos = convertToDto(sports);
+		
+		return dtos;
+	}
+	
 	public List<Sport> getSportsWith2OrMorePlayers() {
 		List<Sport> sports = sportRepo.sportsWith2OrMorePlayers();
 		return sports;
@@ -78,4 +88,16 @@ public class SportService {
 		
 		return response;
 	}
+	
+	private List<SportDTO> convertToDto(List<Sport> sports) {
+		
+		List<SportDTO> dtos = new ArrayList<SportDTO>();
+		
+		for (Sport s : sports) {
+			SportDTO dto = new SportDTO(s);
+			dtos.add(dto);
+		}
+		
+		return dtos;
+ 	}
 }

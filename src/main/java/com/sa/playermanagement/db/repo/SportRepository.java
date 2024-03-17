@@ -18,4 +18,6 @@ public interface SportRepository extends JpaRepository<Sport, Long> {
 	List<Sport> sportsWithZeroPlayers();
 	
 	Sport findByName(String name);
+	
+	List<Sport> findByNameIn(List<String> names);
 }

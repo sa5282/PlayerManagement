@@ -1,14 +1,19 @@
 package com.sa.playermanagement.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -109,6 +114,23 @@ public class PlayerService {
 		}
 
 		return response;
+	}
+	
+	public List<PlayerDTO> listPlayers(String sportFilter, int page, int size) {
+		
+		Pageable pageable = PageRequest.of(page, size);
+		Page<Player> playersPage;
+		
+		if (sportFilter == null || sportFilter.equalsIgnoreCase("all")) {
+			playersPage = playerRepo.findAll(pageable);
+		} else {
+			playersPage = playerRepo.findPlayersBySportFilter(sportFilter, pageable);
+		}
+
+		List<PlayerDTO> players = convertToDto(playersPage.getContent());
+
+		return players;
+		
 	}
 
 	public List<PlayerDTO> convertToDto(List<Player> players) {

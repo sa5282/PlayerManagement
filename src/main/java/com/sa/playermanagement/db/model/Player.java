@@ -7,12 +7,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity(name = "PLAYER")
 public class Player {
@@ -30,8 +32,12 @@ public class Player {
     @Column(name = "AGE", nullable = false)
 	private int age;
     
-    @Column(name = "GENDER", nullable = false, length = 1)
-	private String gender;
+    @Column(name = "GENDER")
+    private String gender;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "GENDER", referencedColumnName = "CODE", insertable = false, updatable = false)
+	private Gender genderObj;
 	
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
     @JoinTable(name = "SPORT_PLAYER", joinColumns = {@JoinColumn(name = "PLAYER_ID")}, inverseJoinColumns = {@JoinColumn(name = "SPORT_ID")} )
@@ -72,7 +78,7 @@ public class Player {
 	public String getGender() {
 		return gender;
 	}
-
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
