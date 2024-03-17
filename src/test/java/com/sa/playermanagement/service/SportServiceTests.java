@@ -27,7 +27,7 @@ public class SportServiceTests {
 //			System.out.println("Sport Name : " + sport.getName());
 //		}
 		
-		assertEquals(sports.size(), 6l);
+		assertEquals(sports.size(), 7l);
 	}
 	
 	@Test
