@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "2fe1854d-920e-4bd4-a919-972bf2191685",
+		"name": "Postman Endpoints Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Sports",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/sport/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"sport",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/player/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"player",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(B-1) Get Sports by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/sport?names=Running",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"sport"
+					],
+					"query": [
+						{
+							"key": "names",
+							"value": "Running"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(B-2) Get Player with No Sport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/player/no-sport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"player",
+						"no-sport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(B-3) Update Sport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 15,\r\n    \"email\": \"player15@fictionalnosport.com\",\r\n    \"level\": 3,\r\n    \"age\": 19,\r\n    \"gender\": \"F\",\r\n    \"sports\": [\r\n        {\r\n            \"id\": 6,\r\n            \"name\": \"Golf\"\r\n        },\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Tennis\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/player/update-sports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"player",
+						"update-sports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(B-4) Delete Sport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/sport/delete/Swimming",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"sport",
+						"delete",
+						"Swimming"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(B-5) Paginated Player List with Filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/psmanager/player/list?page=1&sportFilter=Running",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"psmanager",
+						"player",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "sportFilter",
+							"value": "Running"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
