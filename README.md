@@ -18,3 +18,4 @@ On the command line:
 ## Postman Collection
 A postman collection named `Postman Endpoints Collection.postman_collection.json` is available at the level in the repository.
 Import and open this collection in Postman to call the REST API endpoints inside this application. Each endpoint name is prefixed with B-1, B-2, B-3, B-4, B-5 to help identify the correct endpoint easily.
+
