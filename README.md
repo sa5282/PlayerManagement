@@ -1,6 +1,6 @@
 # PlayerManagement
-Application for managing sports & players and uses an in-memory H2 Database.
-Upon startup, the application loads the data inside `/src/main/resources/data.sql` file into the H2 Database.
+Java/SpringBoot based application for managing sports & players that uses an in-memory H2 Database.
+Upon startup, the application loads the data from the file `/src/main/resources/data.sql` into the H2 Database.
 The data is not persistent, by design, and it is lost when the application shuts down, as this helps in starting over and running the tests again without any data modifications.
 
 ## Requirements
